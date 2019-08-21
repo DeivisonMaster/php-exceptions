@@ -7,12 +7,10 @@ class Venda{
     private $itens = [];
 
     public function adicionar($ItemVenda){
-        try{
-            array_push($this->itens, $ItemVenda);
-            
-        } catch (\Error $e){
-            print "Erro ao adicionar item a lista de itens ".$e->getMessage();
+        if($ItemVenda == null){
+            throw new \InvalidArgumentException("Item não pode ser nulo");
         }
+        array_push($this->itens, $ItemVenda);
     }
 
     public function getTotal(){
