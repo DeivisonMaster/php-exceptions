@@ -7,7 +7,12 @@ class Venda{
     private $itens = [];
 
     public function adicionar($ItemVenda){
-        array_push($this->itens, $ItemVenda);
+        try{
+            array_push($this->itens, $ItemVenda);
+            
+        } catch (\Error $e){
+            print "Erro ao adicionar item a lista de itens ".$e->getMessage();
+        }
     }
 
     public function getTotal(){
