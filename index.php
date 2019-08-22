@@ -20,13 +20,15 @@ require_once "ItemVenda.php";
         $bone->setPreco(11.0);
 
         $Venda = new Venda();
-        $Venda->adicionar(null);
-        $Venda->adicionar($bone);
+        //$Venda->adicionar(null);
+        //$Venda->adicionar($bone);
 
         print "Total da venda: ".$Venda->getTotal();
 
     } catch (\InvalidArgumentException $e){
         print "Um erro ocorreu: ".$e->getMessage();
+    } catch (\LogicException $e){
+        print "Erro: ".$e->getMessage();
     } catch (\Error $e){
         print "Um erro desconhecido ocorreu: ".$e->getMessage();
     }

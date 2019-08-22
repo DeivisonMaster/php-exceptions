@@ -16,6 +16,10 @@ class Venda{
     public function getTotal(){
         $total = 0;
 
+        if(!count($this->itens)){
+            throw new \LogicException("Quantidade de itens deve ser maior que 0");
+        }
+
         foreach ($this->itens as $item){
             $total += $item->getPreco();
         }
