@@ -1,6 +1,7 @@
 <?php
 
 namespace Venda;
+use VendaException\VendaException;
 
 class Venda{
 
@@ -8,7 +9,7 @@ class Venda{
 
     public function adicionar($ItemVenda){
         if($ItemVenda == null){
-            throw new \InvalidArgumentException("Item não pode ser nulo");
+            throw new VendaException(500, "Item não pode ser nulo");
         }
         array_push($this->itens, $ItemVenda);
     }
