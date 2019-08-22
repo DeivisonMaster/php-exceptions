@@ -27,12 +27,14 @@ require_once "VendaException.php";
 
         print "Total da venda: ".$Venda->getTotal();
 
-    } catch (\VendaException $e){
-        print "VendaException: ".$e->getMessage()." - Código: ".$e.getCodigo();
+    } catch (VendaException $e){
+        print "VendaException: ".$e->getMessage()." - Código: ".$e->getCodigo();
     } catch (\InvalidArgumentException $e){
         print "Um erro ocorreu: ".$e->getMessage();
     } catch (\LogicException $e){
         print "Erro: ".$e->getMessage();
     } catch (\Error $e){
         print "Um erro desconhecido ocorreu: ".$e->getMessage();
+    } finally {
+        print "<br/>Processamento encerrado.";
     }
